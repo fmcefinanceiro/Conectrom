@@ -1,5 +1,6 @@
+streamlit>=1.23,<2
+altair<5
 pandas
-plotly
-requests
-streamlit
 numpy
+plotly
+openpyxl
