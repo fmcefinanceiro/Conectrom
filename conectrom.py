@@ -1500,16 +1500,14 @@ elif menu == "Relatório":
         )        
 
     st.subheader("📊 Demonstração do Resultado do Exercício (DRE)")
+    dre_df["Valor Formatado"] = dre_df["Valor (R$ mil)"].apply(
+    lambda x: f"R$ {x:,.2f}".replace(",", "X").replace(".", ",").replace("X", ".")
+    )
+
     st.dataframe(
-        dre_df[["Descrição", "Valor (R$ mil)"]],
+        dre_df[["Descrição", "Valor Formatado"]],
         use_container_width=True,
-        hide_index=True,
-        column_config={
-            "Valor (R$ mil)": st.column_config.NumberColumn(
-                "Valor (R$ mil)",
-                format="R$ %.2f"
-            )
-        }
+        hide_index=True
     )
 
 
